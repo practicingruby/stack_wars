@@ -1,7 +1,23 @@
 module StackWars
   class Battlefield
+    SIZE = 9
+
     def self.from_json(json_file)
-      new(JSON.parse(File.read(json_file)))
+      territory_data = JSON.parse(File.read(json_file))
+
+      territories = territory_data.map.with_index do |row, y|
+        row.map.with_index do |t, x|
+          occupant, strength = t
+          if occupant == "unclaimed"
+            Territory.new([x,y])
+          else
+            Territory.new([x,y], :occupant      => occupant, 
+                                 :army_strength => strength)
+          end
+        end
+      end
+      
+      new(territories)
     end
 
     def initialize(territories)

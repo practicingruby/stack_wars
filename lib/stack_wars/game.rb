@@ -1,7 +1,7 @@
 module StackWars
   class Game
     def initialize(battlefield)
-      @players         = [Player.new(:black), Player.new(:white)].cycle
+      @players         = [Player.new("black"), Player.new("white")].cycle
       @battlefield     = battlefield
       start_new_turn 
     end
