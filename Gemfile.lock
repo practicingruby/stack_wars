@@ -1,0 +1,14 @@
+PATH
+  remote: .
+  specs:
+    stack_wars (0.0.1)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  stack_wars!
