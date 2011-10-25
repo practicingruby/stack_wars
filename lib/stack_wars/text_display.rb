@@ -20,7 +20,7 @@ module StackWars
         "#{row_index.to_s.rjust(3)}  #{r_text}\n"
       end.join("#{SEPARATOR}\n")
 
-      [HEADER, BLACK_BORDER, battlefield_text.chomp, WHITE_BORDER].join("\n")
+      [HEADER, WHITE_BORDER, battlefield_text.chomp, BLACK_BORDER].join("\n")
     end
 
     def format_territory(territory)

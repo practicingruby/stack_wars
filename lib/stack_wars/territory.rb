@@ -43,9 +43,9 @@ module StackWars
     def baseline_for?(player)
       case player.color
       when "white"
-        row == 0
+        row == Battlefield::WHITE_BASELINE
       when "black"
-        row == Battlefield::SIZE - 1
+        row == Battlefield::BLACK_BASELINE
       else
         raise ArgumentError, "#{color} is not a valid color"
       end

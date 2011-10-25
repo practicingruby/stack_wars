@@ -30,6 +30,10 @@ module StackWars
       Marshal.load(Marshal.dump(@territories))
     end
 
+    def[](x,y)
+      @territories[y][x]
+    end
+
     # loses instance variables, but better than hitting to_s() by default
     alias_method :inspect, :to_s
 
