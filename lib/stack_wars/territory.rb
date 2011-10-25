@@ -13,15 +13,34 @@ module StackWars
 
     attr_reader :occupant, :army_strength
 
+    def controlled_by?(player)
+      baseline_for?(player) || occupied_by?(player) 
+    end
+
+    def fortify(player)
+      if controlled_by?(player)
+        player.deploy_army
+
+        @army_strength += 1
+        @occupant ||= player.color
+      else
+        raise Errors::IllegalMove
+      end
+    end
+
     def occupied?
       !!@occupant
+    end
+
+    def unoccupied?
+      !occupied?
     end
 
     def occupied_by?(player)
       @occupant == player.color
     end
 
-    def baseline?(player)
+    def baseline_for?(player)
       case player.color
       when "white"
         row == 0

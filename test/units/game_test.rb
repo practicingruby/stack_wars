@@ -8,13 +8,13 @@ describe "StackWars::Game" do
   subject { StackWars::Game.new(battlefield) }
 
   it "must be able to alternate players" do
-    subject.active_player.color.must_equal :black
+    subject.active_player.color.must_equal "black"
 
     subject.start_new_turn
-    subject.active_player.color.must_equal :white
+    subject.active_player.color.must_equal "white"
 
     subject.start_new_turn
-    subject.active_player.color.must_equal :black
+    subject.active_player.color.must_equal "black"
   end
 
   it "must be able to fortify positions" do

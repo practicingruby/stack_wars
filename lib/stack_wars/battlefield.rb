@@ -1,6 +1,8 @@
 module StackWars
   class Battlefield
     SIZE = 9
+    WHITE_BASELINE = 0
+    BLACK_BASELINE = SIZE - 1
 
     def self.from_json(json_file)
       territory_data = JSON.parse(File.read(json_file))

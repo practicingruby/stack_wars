@@ -5,7 +5,7 @@ module StackWars
       @reserves = 3*Battlefield::SIZE
     end
 
-    def decrease_reserves
+    def deploy_army
       @reserves -= 1
     end
 
