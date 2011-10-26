@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stack_wars (0.0.1)
+    stack_wars (0.1.0)
 
 GEM
   remote: http://rubygems.org/
