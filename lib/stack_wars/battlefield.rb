@@ -1,6 +1,6 @@
 module StackWars
   class Battlefield
-    SIZE = 9
+    SIZE           = 9
     WHITE_BASELINE = 0
     BLACK_BASELINE = SIZE - 1
 
@@ -31,21 +31,17 @@ module StackWars
       end
     end
 
-    def to_a
-      Marshal.load(Marshal.dump(@territories))
-    end
-
-    def adjacent?(pos1, pos2)
-      (pos1.row == pos2.row && (pos1.column - pos2.column).abs == 1) ||
-      (pos2.column == pos2.column && (pos1.row - pos2.row).abs == 1)
-    end
-
     def[](x,y)
       unless [x,y].all? { |c| (WHITE_BASELINE..BLACK_BASELINE).include?(c) }
         raise Errors::OutOfBounds 
       end
 
       @territories[y][x]
+    end
+
+    def adjacent?(pos1, pos2)
+      (pos1.row == pos2.row && (pos1.column - pos2.column).abs == 1) ||
+      (pos2.column == pos2.column && (pos1.row - pos2.row).abs == 1)
     end
 
     def deployed_armies(player)
@@ -60,6 +56,10 @@ module StackWars
 
     def to_s
       TextDisplay.new(to_a).to_s
+    end
+
+    def to_a
+      Marshal.load(Marshal.dump(@territories))
     end
   end
 end
