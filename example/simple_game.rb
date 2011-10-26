@@ -9,9 +9,14 @@ loop do
   puts field
 
   puts
+  puts "Current Score: #{game.active_player.color}: "+
+       "#{game.active_player.successful_invasions}, "+
+       "#{game.opponent.color}: "+
+       "#{game.opponent.successful_invasions}"
+
   print "#{game.active_player.color}:#{game.active_player.reserves} > "
 
-  md = gets.match(/^ *(?<pos1>\d+ *\d+) *(?<pos2>\d+ \d+)? *$/)
+  md = gets.match(/^ *(?<pos1>\d+ +\d+) *(?<pos2>\d+ +\d+)? *$/)
   unless md
     puts "Unknown command. [press enter to resume]"
     gets

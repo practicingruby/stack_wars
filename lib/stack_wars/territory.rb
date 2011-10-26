@@ -24,7 +24,7 @@ module StackWars
     end
 
     def remove_one_army
-      raise StackWars::Errors::IllegalMove unless @army_strength > 0
+      raise Errors::IllegalMove unless @army_strength > 0
 
       @army_strength -= 1
       @occupant = nil if @army_strength == 0

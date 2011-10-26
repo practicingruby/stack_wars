@@ -30,7 +30,21 @@ module StackWars
         end
       end
       
-      start_new_turn
+      game_over || start_new_turn
+    end
+
+    def game_over
+      deployed_armies = battlefield.deployed_armies(active_player) 
+      if active_player.reserves + deployed_armies == 0
+        case
+        when active_player.successful_invasions > opponent.successful_invasions     
+          throw :game_over, "#{active_player.color} won!"
+        when active_player.successful_invasions < opponent.successful_invasions
+          throw :game_over, "#{opponent.color} won!"
+        else
+          throw :game_over, "its a draw"
+        end
+      end
     end
 
     def start_new_turn
@@ -43,7 +57,11 @@ module StackWars
 
     def move_army(from, to)
       from.remove_one_army
-      to.add_one_army(active_player)
+      if to.baseline_for?(opponent)
+        active_player.invade_enemy_territory
+      else
+        to.add_one_army(active_player)
+      end
     end
 
     def attack(from, to)

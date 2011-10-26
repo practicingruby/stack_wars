@@ -48,6 +48,13 @@ module StackWars
       @territories[y][x]
     end
 
+    def deployed_armies(player)
+      # FIXME: Inefficient, can probably store integer values on write
+      @territories.flatten.reduce(0) do |s, t| 
+         s + (t.occupant == player.color ? t.army_strength : 0)
+      end
+    end
+
     # loses instance variables, but better than hitting to_s() by default
     alias_method :inspect, :to_s
 
