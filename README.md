@@ -58,4 +58,8 @@ If you'd like to help out, here's where to start:
 Once you have gone through those steps, please email me at
 gregory.t.brown@gmail.com letting me know that you'd like to contribute to the
 project. If you had any trouble with the setup process, you can let me know at
-that time.
+that time. 
+
+I will eventually post a roadmap publicly, but it's a bit early for that now. If
+you get in touch with me, I'll work with you to figure out what you can work on
+based on your interests and the needs of the project.
