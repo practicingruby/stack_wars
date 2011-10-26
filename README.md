@@ -49,9 +49,9 @@ If you'd like to help out, here's where to start:
     0) Make sure you've got a working install of Ruby 1.9.2 handy
     1) Fork the project on github: https://github.com/sandal/stack_wars
     2) Install Bundler if necessary (gem install bundler) [*]
-    3) Run `bundle install` [*]
-    4) Run `ruby tests/suite.rb` and verify tests are passing
-    5) Run `ruby examples/sample_game.rb` and make sure it works as expected
+    3) Run bundle install [*]
+    4) Run ruby tests/suite.rb and verify tests are passing
+    5) Run ruby examples/sample_game.rb and make sure it works as expected
 
     [*] Feel free to skip bundler instructions if you know what you're doing and
     would rather not use Bundler, there are no runtime dependencies on it.
