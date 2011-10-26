@@ -22,8 +22,13 @@ module StackWars
       new(territories)
     end
 
-    def initialize(territories)
-      @territories = territories
+    def initialize(territories=nil)
+      if territories
+        @territories = territories
+      else
+        @territories = 
+          SIZE.times.map { |y| SIZE.times.map { |x| Territory.new([x,y]) } }   
+      end
     end
 
     def to_a
