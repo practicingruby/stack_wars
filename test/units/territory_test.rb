@@ -64,16 +64,23 @@ describe "StackWars::Territory" do
 
   it "allows the player to fortify any position on their own baseline" do
     columns.each do |x|
-      [black_player, white_player].each do |player|
-        territory = new_territory([x, black_baseline])
-        territory.fortify(black_player)
+      black_territory = new_territory([x, black_baseline])
+      black_territory.fortify(black_player)
         
-        territory.army_strength.must_equal(1)
-        territory.must_be :occupied_by?, black_player
+      black_territory.army_strength.must_equal(1)
+      black_territory.must_be :occupied_by?, black_player
 
-        territory.fortify(black_player)
-        territory.army_strength.must_equal(2)
-      end
+      black_territory.fortify(black_player)
+      black_territory.army_strength.must_equal(2)
+
+      white_territory = new_territory([x, white_baseline])
+      white_territory.fortify(white_player)
+        
+      white_territory.army_strength.must_equal(1)
+      white_territory.must_be :occupied_by?, white_player
+
+      white_territory.fortify(white_player)
+      white_territory.army_strength.must_equal(2)
     end
   end
 
