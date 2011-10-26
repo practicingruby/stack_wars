@@ -1,3 +1,5 @@
+gem "minitest", "~> 2.6.1"
+
 require "minitest/autorun"
 require "mocha"
 

@@ -12,6 +12,10 @@ Gem::Specification.new do |s|
   s.files = Dir.glob("{bin,lib,test,examples,doc,data}/**/*") + %w(README.md)
   s.require_path = 'lib'
   s.executables = ["stackwars-viewer"]
+
+  s.add_development_dependency "minitest", "~> 2.6.1"
+  s.add_development_dependency "mocha", "~> 0.10.0"
+
   s.required_ruby_version = ">= 1.9.2"
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project = "rcat"

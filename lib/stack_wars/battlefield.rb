@@ -30,7 +30,16 @@ module StackWars
       Marshal.load(Marshal.dump(@territories))
     end
 
+    def adjacent?(pos1, pos2)
+      (pos1.row == pos2.row && (pos1.column - pos2.column).abs == 1) ||
+      (pos2.column == pos2.column && (pos1.row - pos2.row).abs == 1)
+    end
+
     def[](x,y)
+      unless [x,y].all? { |c| (WHITE_BASELINE..BLACK_BASELINE).include?(c) }
+        raise Errors::OutOfBounds 
+      end
+
       @territories[y][x]
     end
 

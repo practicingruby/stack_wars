@@ -17,11 +17,24 @@ module StackWars
       baseline_for?(player) || occupied_by?(player) 
     end
 
+    def add_one_army(player)
+      @army_strength += 1
+
+      @occupant ||= player.color
+    end
+
+    def remove_one_army
+      raise StackWars::Errors::IllegalMove unless @army_strength > 0
+
+      @army_strength -= 1
+      @occupant = nil if @army_strength == 0
+    end
+
     def fortify(player)
       if controlled_by?(player)
         player.deploy_army
+        add_one_army(player)
 
-        @army_strength += 1
         @occupant ||= player.color
       else
         raise Errors::IllegalMove
