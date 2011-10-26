@@ -1,1 +1,108 @@
-these are the rules, enjoy them
+Stack Wars is an abstract board game played on a two dimensional grid, similar
+to a Chess or Go board. The game is currently still being play tested / 
+balanced, but the rules below should give you enough to try it out on your own.
+
+== Board layout + setup
+
+The board represents a battlefield that two players must
+fight for control over, with the goal of invading each other's bases. The ASCII
+representation below shows a standard 9x9 grid representing the battlefield.
+
+       0      1      2      3      4      5      6      7      8
+     WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+  0  (___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)
+       |      |      |      |      |      |      |      |      |
+  1  (___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)
+       |      |      |      |      |      |      |      |      |
+  2  (___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)
+       |      |      |      |      |      |      |      |      |
+  3  (___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)
+       |      |      |      |      |      |      |      |      |
+  4  (___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)
+       |      |      |      |      |      |      |      |      |
+  5  (___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)
+       |      |      |      |      |      |      |      |      |
+  6  (___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)
+       |      |      |      |      |      |      |      |      |
+  7  (___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)
+       |      |      |      |      |      |      |      |      |
+  8  (___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)--(___)
+     BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+The battlefield starts off empty (as shown above), with each player holding a
+number of armies in reserve equal to three times the width of the battlefield.
+For example, on a 9x9 grid, each player starts off with 27 armies, on a 13x13
+each player starts off with 39 armies, and so on.
+
+== Possible turn actions 
+
+Black starts the game, and then play alternates as each player takes one of the
+following actions per turn.
+
+  - FORTIFY a CONTROLLED territory by adding a single army from reserves
+  - MOVE a single army from a CONTROLLED territory to an adjacent
+    UNCLAIMED territory
+  - ATTACK a single enemy territory adjacent to one of the player's 
+    CONTROLLED territories
+  - INVADE the enemy base (may be a MOVE or ATTACK, details explained later)
+
+Throughout the game, the following territories are considered to be CONTROLLED
+by the active player:
+
+  1) Anything that lies on the BASELINE (i.e. boundary line between the 
+     battlefield and the player's base). This works out to any territory 
+     in row 0 for white, and any territory in row N for black, where N i
+     s the last row of the board.
+
+  2) Any territory which has at least one of the active player's army fortified
+     within it.
+
+Some restrictions apply to how turns play out, depending on game conditions:
+
+  * In order to FORTIFY a position, the active player must have at least one
+    army in reserves.
+
+  * Adjacent territories are a single edge away horizontally or vertically,
+    but not diagonally. E.g. adjacent territories to (2,2) are:
+    (2,1), (2,3), (1,2), (3,2). You cannot MOVE, ATTACK, or INVADE diagonally
+    at any point in time.
+
+  * Two or more armies within a single territory form a STACK. If moving from
+    a STACK to another position, only a single army is moved, not the 
+    entire STACK.
+
+  * You can only carry out an ATTACK from a territory which does not contain
+    a STACK (i.e. a position with a single army)
+
+  * If an ATTACK on an enemy territory causes that territory to becomes 
+    unoccupied, you must immediately move the army you attacked with 
+    into that territory.
+
+  * Whenever an army is removed from the battlefield via an ATTACK, 
+    it is immediately removed from play, and does not count for or against
+    either player's score, nor does it get returned to the either player's
+    reserves.
+
+== Gaining Points
+
+An INVASION is carried out by moving one of the active player's armies into an
+adjacent territory which is part of the enemy's BASELINE. This can be done via a
+MOVE or an ATTACK. As soon as the active player's army is moved onto the
+baseline, it is removed from play, and the active player gets one point added to
+their score.
+
+== Ending the game
+
+At the exact moment that one player has no armies in play as well as no armies
+in reserve, the game immediately ends. If one player has more points than the
+other, the player with the greater amount of points. If instead each player 
+has an equal number of points, the game ends in a draw.
+
+Alteratively, both players have the option of resigning at any time. Because
+this is a game in which it may be obvious who the winner is well ahead of the
+standard end game conditions, it should not be considered impolite to resign
+when the battle is no longer interesting.
+
+== Questions / Suggestions?
+
+Email gregory.t.brown@gmail.com

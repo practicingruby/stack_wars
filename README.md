@@ -1,5 +1,5 @@
 Stack Wars is an abstract board game currently being developed by Gregory Brown
-(@seacreature)
+(@seacreature) and Jia Wu (@sindhri)
 
 The game itself can be played on Chess or Go board as long as you have some
 stackable objects available to you (coins or bingo markers work fine). However,
