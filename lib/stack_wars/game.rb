@@ -8,10 +8,11 @@ module StackWars
 
     attr_reader :active_player
 
-    def fortify(position)
+    def play(position)
       territory = territory_at(position)     
       
       territory.fortify(active_player)
+      start_new_turn
     end
 
     def start_new_turn

@@ -17,10 +17,11 @@ describe "StackWars::Game" do
     subject.active_player.color.must_equal "black"
   end
 
-  it "must be able to fortify positions" do
+  it "must fortify when only one position is given" do
     subject.expects(:territory_at).with([0,1]).returns(territory)
     territory.expects(:fortify).with(subject.active_player)
 
-    subject.fortify([0,1])
+    subject.play([0,1])
   end
+
 end
