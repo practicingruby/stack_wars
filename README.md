@@ -42,9 +42,8 @@ expected._
 
 ## To contribute to this project
 
-Right now the project is in its very early stages. There is a lot to be done,
-and I'd be happy to accept contributions. If you'd like to help out, here's what
-to do.
+There is a lot to be done on this project, and I'd be happy to accept contributions. 
+If you'd like to help out, here's where to start:
 
     0) Make sure you've got a working install of Ruby 1.9.2 handy
     1) Fork the project on github: https://github.com/sandal/stack_wars
