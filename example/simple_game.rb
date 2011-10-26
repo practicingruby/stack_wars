@@ -35,7 +35,7 @@ message = catch(:game_over) do
         game.play(md[:pos1].scan(/\d+/).map(&:to_i))
       end
       
-      moves << [md[:pos1], md[:pos]].compact
+      moves << [md[:pos1], md[:pos2]].compact
     rescue StackWars::Errors::IllegalMove
       puts "illegal move [press enter to resume]"
       gets
