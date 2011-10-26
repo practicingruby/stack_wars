@@ -1,6 +1,0 @@
-#!/usr/bin/env ruby
-
-require "json"
-require_relative "../lib/stack_wars"
-
-puts StackWars::Battlefield.from_json(ARGV[0])
