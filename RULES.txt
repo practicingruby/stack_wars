@@ -106,3 +106,8 @@ when the battle is no longer interesting.
 == Questions / Suggestions?
 
 Email gregory.t.brown@gmail.com
+
+== Implementation
+
+You can find the source code for this game at:
+http://github.com/sandal/stack_wars
