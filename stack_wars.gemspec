@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/sandal/stack_wars"
   s.summary = "An abstract strategy board game about bases and killing d00ds"
   s.description = "An abstract strategy board game about bases and killing d00ds"
-  s.files = Dir.glob("{bin,lib,test,examples,doc,data}/**/*") + 
+  s.files = Dir.glob("{bin,lib,test,example,doc,data}/**/*") + 
     %w(README.md LICENSE RULES.txt)
   s.require_path = 'lib'
   s.executables = ["stack_wars"]
