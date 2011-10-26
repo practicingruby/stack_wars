@@ -1,10 +1,9 @@
 require_relative "../lib/stack_wars"
 
 data = "#{File.dirname(__FILE__)}/../test/fixtures/active_battlefield.json"
-field = StackWars::Battlefield.from_json(data)
+field = StackWars::Battlefield.new
 game  = StackWars::Game.new(field)
-game.active_player.instance_variable_set(:@reserves, 2)
-game.opponent.instance_variable_set(:@reserves, 2)
+moves = []
 
 message = catch(:game_over) do
   loop do
@@ -19,7 +18,10 @@ message = catch(:game_over) do
 
     print "#{game.active_player.color}:#{game.active_player.reserves} > "
 
-    md = gets.match(/^ *(?<pos1>\d+ +\d+) *(?<pos2>\d+ +\d+)? *$/)
+    input = gets
+    throw :game_over, "#{game.opponent.color} wins" if input.match(/resign/)
+
+    md = input.match(/^ *(?<pos1>\d+ +\d+) *(?<pos2>\d+ +\d+)? *$/)
     unless md
       puts "Unknown command. [press enter to resume]"
       gets
@@ -32,6 +34,8 @@ message = catch(:game_over) do
       else
         game.play(md[:pos1].scan(/\d+/).map(&:to_i))
       end
+      
+      moves << [md[:pos1], md[:pos]].compact
     rescue StackWars::Errors::IllegalMove
       puts "illegal move [press enter to resume]"
       gets
@@ -41,3 +45,4 @@ message = catch(:game_over) do
 end
 
 puts message
+p moves
