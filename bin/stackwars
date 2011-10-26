@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+# NOTE: This script is just a proof of concept.
+# This game will eventually have a GUI of some sort
+
+require_relative "../lib/stack_wars"
+
+def play_game
+  field = StackWars::Battlefield.new
+  game  = StackWars::Game.new(field)
+
+  client = StackWars::TextClient.new(game)
+
+  message = catch(:game_over) do
+    loop do
+      system "clear"
+      puts field
+
+      puts
+      puts "Current Score: #{game.active_player.color}: "+
+           "#{game.active_player.successful_invasions}, "+
+           "#{game.opponent.color}: "+
+           "#{game.opponent.successful_invasions}"
+
+      print "#{game.active_player.color}:#{game.active_player.reserves} > "
+
+      begin
+        move = yield
+
+        if move[/resign/i]
+          throw :game_over, "#{game.active_player.color} resigned"
+        else
+          client.play(move)
+        end
+      rescue StackWars::Errors::ParseError
+        puts "invalid command, press enter to continue"
+        gets
+      rescue StackWars::Errors::IllegalMove
+        puts "that move is illegal, press enter to continue"
+        gets
+      end
+    end
+  end
+
+  puts field
+  puts message
+end
+
+case ARGV[0]
+when "rules"
+  system("less #{File.dirname(__FILE__)}/../RULES.txt")
+when "demo"
+  file = "#{File.dirname(__FILE__)}/../example/sample-moves.txt"
+  moves = File.foreach(file) 
+  play_game do
+    move = moves.next 
+    puts "#{move}\nhit enter to continue"
+    $stdin.gets
+    move
+  end
+else
+  play_game { $stdin.gets }
+end

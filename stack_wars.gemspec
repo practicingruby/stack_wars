@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = "Demo application for Practicing Ruby 2.10"
   s.files = Dir.glob("{bin,lib,test,examples,doc,data}/**/*") + %w(README.md)
   s.require_path = 'lib'
-  s.executables = []
+  s.executables = ["stackwars"]
 
   s.add_development_dependency "minitest", "~> 2.6.1"
 
