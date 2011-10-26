@@ -64,3 +64,7 @@ that time.
 I will eventually post a roadmap publicly, but it's a bit early for that now. If
 you get in touch with me, I'll work with you to figure out what you can work on
 based on your interests and the needs of the project.
+
+_NOTE: Contributors retain copyright to their work but must agree to release their
+contributions under the [Affero GPL version
+3](http://www.gnu.org/licenses/agpl.html)_
