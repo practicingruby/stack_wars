@@ -22,6 +22,7 @@ module StackWars
         to   = territory_at(pos2)
 
         raise Errors::IllegalMove unless battlefield.adjacent?(from, to)
+        raise Errors::IllegalMove unless from.occupied_by?(active_player)
 
         if to.occupied_by?(opponent)
           attack(from, to)
@@ -34,8 +35,11 @@ module StackWars
     end
 
     def game_over
-      deployed_armies = battlefield.deployed_armies(active_player) 
-      if active_player.reserves + deployed_armies == 0
+      ap_deployed_armies  = battlefield.deployed_armies(active_player)
+      opp_deployed_armies = battlefield.deployed_armies(opponent)
+
+      if active_player.reserves + ap_deployed_armies == 0 ||
+         opponent.reserves      + opp_deployed_armies == 0
         case
         when active_player.successful_invasions > opponent.successful_invasions     
           throw :game_over, "#{active_player.color} won!"
@@ -57,6 +61,7 @@ module StackWars
 
     def move_army(from, to)
       from.remove_one_army
+
       if to.baseline_for?(opponent)
         active_player.invade_enemy_territory
       else
