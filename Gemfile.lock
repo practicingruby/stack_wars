@@ -6,15 +6,11 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    metaclass (0.0.1)
     minitest (2.6.2)
-    mocha (0.10.0)
-      metaclass (~> 0.0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   minitest (~> 2.6.1)
-  mocha (~> 0.10.0)
   stack_wars!
