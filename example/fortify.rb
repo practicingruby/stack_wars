@@ -11,6 +11,8 @@ puts "\nFortifying black position at (0,6)\n\n"
 
 field[0,6].fortify(black_player)
 
-puts "#{field}\n\nFortifying white baseline position at (2,8)"
+puts "#{field}\n\nFortifying white baseline position at (2,0)"
 
 field[2,0].fortify(white_player)
+
+puts field
