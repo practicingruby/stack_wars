@@ -53,8 +53,8 @@ to do.
     4) Run `ruby tests/suite.rb` and verify tests are passing
     5) Run `ruby examples/sample_game.rb` and make sure it works as expected
 
-[*] Feel free to skip bundler instructions if you know what you're doing and
-would rather not use Bundler, there are no runtime dependencies on it.
+    [*] Feel free to skip bundler instructions if you know what you're doing and
+    would rather not use Bundler, there are no runtime dependencies on it.
 
 Once you have gone through those steps, please email me at
 gregory.t.brown@gmail.com letting me know that you'd like to contribute to the
