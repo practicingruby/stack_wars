@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary = "An abstract strategy board game about bases and killing d00ds"
   s.description = "An abstract strategy board game about bases and killing d00ds"
   s.files = Dir.glob("{bin,lib,test,example,doc,data}/**/*") + 
-    %w(README.md LICENSE RULES.txt)
+    %w(README.md LICENSE RULES.txt CHANGELOG)
   s.require_path = 'lib'
   s.executables = ["stack_wars"]
 
