@@ -95,7 +95,7 @@ their score.
 
 At the exact moment that one player has no armies in play as well as no armies
 in reserve, the game immediately ends. If one player has more points than the
-other, the player with the greater amount of points. If instead each player 
+other, the player with the greater amount of points win. If instead each player 
 has an equal number of points, the game ends in a draw.
 
 Alteratively, both players have the option of resigning at any time. Because
